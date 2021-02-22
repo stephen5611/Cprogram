@@ -1,0 +1,25 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Clone Repo') { 
+            steps {
+                //sh "rm -r Cprogram"
+                sh "git clone https://github.com/stephen5611/Cprogram.git" 
+                sh "pwd"
+            }
+        }
+        stage('build') { 
+            steps {
+                sh "pwd"
+               // sh "cd ./Cprogram"
+                sh "pwd"
+                sh "gcc Hello.c -o hello"
+            }
+        }
+        stage('Deploy') { 
+            steps {
+                sh "./hello "
+            }
+        }
+    }
+}
